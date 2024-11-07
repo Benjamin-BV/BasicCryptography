@@ -1,0 +1,2 @@
+There is a challenge involved, where you are given an encrypted flag, and are prompted to use the given algorithm to decrypt the string to get an output
+For this challenge, you may also have to use a pen and paper to keep track of some things :)
