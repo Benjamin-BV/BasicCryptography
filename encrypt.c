@@ -12,9 +12,15 @@ void decrypt(FILE *decrypted, FILE *encrypted){
     char decrypt[32];
 
         for(int i = 0; (copy = fgetc(decrypted)) != EOF; i++){
-            fputc(copy, encrypted);
-            decrypt[i] = copy + (i - 18);
-            fputc(decrypt[i], decrypted);
+            fputc(copy, decrypted);
+            decrypt[i] = copy - (i - 18);
+            if(decrypt[i] > 125){
+                decrypt[i] = copy - 2;
+            }
+            if(decrypt[i] < 32){
+                decrypt[i] = copy + 2;
+            }
+            fputc(decrypt[i], encrypted);
     }
 
     printf("%s\n", decrypt);
